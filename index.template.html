@@ -97,39 +97,15 @@
 						<p>These are the current templates</p>
 					</header>
 					<div class="row">
-						
+						{% for d in dirs %}
 							<div class="col-4 col-6-medium col-12-small">
 								<article class="box style2">
-									<a href="html5up-dopetrope/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="html5up-dopetrope/">html5up-dopetrope</a></h3>
-									<p>html5up-dopetrope</p>
+									<a href="{{d}}/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="{{d}}/">{{d}}</a></h3>
+									<p>{{d}}</p>
 								</article>
 							</div>
-						
-							<div class="col-4 col-6-medium col-12-small">
-								<article class="box style2">
-									<a href="html5up-miniport/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="html5up-miniport/">html5up-miniport</a></h3>
-									<p>html5up-miniport</p>
-								</article>
-							</div>
-						
-							<div class="col-4 col-6-medium col-12-small">
-								<article class="box style2">
-									<a href="html5up-miniport2/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="html5up-miniport2/">html5up-miniport2</a></h3>
-									<p>html5up-miniport2</p>
-								</article>
-							</div>
-						
-							<div class="col-4 col-6-medium col-12-small">
-								<article class="box style2">
-									<a href="html5up-photon/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="html5up-photon/">html5up-photon</a></h3>
-									<p>html5up-photon</p>
-								</article>
-							</div>
-						
+						{% endfor %}
 						<!--
 						<div class="col-4 col-6-medium col-12-small">
 							<article class="box style2">

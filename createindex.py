@@ -1,44 +1,31 @@
-pre = """
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>html-templates</title>
-</head>
-<body>
-<ul>
-"""
-
-post = """
-</ul>
-</body>
-</html>
-"""
 import os
+import django
+from django.conf import settings
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['.']#'templates/'],
+    }
+]
+settings.configure(TEMPLATES=TEMPLATES)
+django.setup()
+from django.template.loader import get_template
+from django.template import Context
+template = get_template('index.template.html')
 
-DEBUG = False
-if DEBUG:
-	from varinfo import *
-
-
-
-def create_html(dirs):
-	html = ''
-	for d in dirs:
-		html += f'\t<li><a href="{d}/"><h1>{d}</h1></a></li>\n'
-	return html
 
 def write(content, filename='index.html'):
 	with open(filename, 'w') as f:
-		f.write(pre)
 		f.write(content)
-		f.write(post)
 		print(f'Finished writing to {filename}')
 
+
 dirs = [d for d in os.listdir('.') if not os.path.isfile(d)]
-dirs.remove('.git')
-choice = input(f'Found {len(dirs)} directories: {dirs}\nContinue?(Y/n)')
-if choice.lower != 'n':
-	html = create_html(dirs)
-	write(html)
-print('Exiting')
+remove = ['.git','.venv','assets','images','templates']
+for r in remove: dirs.remove(r)
+
+print(f'Found {len(dirs)} directories.\n{dirs}')
+
+html = template.render({'dirs':dirs})
+write(html)
+print('Done')
