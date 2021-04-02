@@ -1,11 +1,17 @@
 pre = """
+<!DOCTYPE html>
 <html>
-
+<head>
+  <meta charset="UTF-8">
+  <title>html-templates</title>
+</head>
+<body>
 <ul>
 """
 
 post = """
 </ul>
+</body>
 </html>
 """
 import os
