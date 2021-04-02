@@ -100,8 +100,13 @@
 						{% for d in dirs %}
 							<div class="col-4 col-6-medium col-12-small">
 								<article class="box style2">
-									<a href="{{d}}/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="{{d}}/">{{d}}</a></h3>
+									<a href="{{d}}/index.html" class="image featured">
+										<img src="images/{{d}}.png" alt="" />
+									</a>
+									<h3>
+										<a href="{{d}}/index.html">{{d}}
+										</a>
+									</h3>
 									<p>{{d}}</p>
 								</article>
 							</div>
