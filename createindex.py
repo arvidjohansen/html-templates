@@ -25,16 +25,19 @@ def screenshot(urls, local=True):
         if local: 
             full_path = os.path.join(os.getcwd(),f'{url}\\index.html')
             ss_path = os.path.join(os.getcwd(),f'images')
+            ss_fname = f'{ss_path}\\{url}.png'
             #import pdb
             #pdb.set_trace()
-    
+        if os.path.exists(ss_fname):
+            print(f'Skipping {url} because it exists...')
+            continue
         print(f'Opening url: {full_path}')
         driver.get(full_path)
         sleep(1)
     
-        driver.get_screenshot_as_file(f'{ss_path}\\{url}.png')
+        driver.get_screenshot_as_file(ss_fname)
         
-        print(f'Saved screenshot as {ss_path}\\{url}.png')
+        print(f'Saved screenshot as {ss_fname}')
 
     driver.quit()
 
