@@ -46,7 +46,7 @@ def write(content, filename='index.html'):
 
 
 dirs = [d for d in os.listdir('.') if not os.path.isfile(d)]
-remove = ['.git','.venv','assets','images','templates']
+remove = ['.git','.venv','assets','images','templates','.vscode']
 for r in remove: dirs.remove(r)
 
 print(f'Found {len(dirs)} directories.\n{dirs}')
