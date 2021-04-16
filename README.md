@@ -4,3 +4,6 @@
 * Mostly from https://html5up.net 
 * Also from https://startbootstrap.com/?showPro=false 
 
+## Other HTML-resources
+
+* font-awesome icons <a href="https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use">here </a>
